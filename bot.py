@@ -76,12 +76,9 @@ logger = logging.getLogger(__name__)
 
 # الحصول على توكن البوت من متغيرات البيئة
 # يجب على المستخدم تعيين هذا المتغير قبل التشغيل
-BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN")
+BOT_TOKEN = "8320082200:AAHB4DMYOmg-vXs8UhSsO-t00qf0jUxAh1Y" # تم دمج التوكن بناءً على طلب المستخدم
 
-if not BOT_TOKEN:
-    logger.error("TELEGRAM_BOT_TOKEN environment variable not set.")
-    # يمكن إيقاف التطبيق هنا أو استخدام قيمة وهمية للاختبار المحلي
-    # لكن للتشغيل الفعلي، يجب أن يكون التوكن موجودًا.
+# تم دمج التوكن بناءً على طلب المستخدم، لذا لا حاجة للتحقق من متغير البيئة.
 
 async def start(update: Update, context):
     """يرسل رسالة عند الأمر /start."""
@@ -117,9 +114,7 @@ async def error_handler(update: Update, context):
 
 def main():
     """يبدأ تشغيل البوت."""
-    if not BOT_TOKEN:
-        print("خطأ: لم يتم تعيين متغير البيئة TELEGRAM_BOT_TOKEN. يرجى تعيينه قبل التشغيل.")
-        return
+    # التوكن مدمج مباشرة، لا حاجة للتحقق.
 
     # إنشاء التطبيق وتمرير توكن البوت
     application = Application.builder().token(BOT_TOKEN).build()
